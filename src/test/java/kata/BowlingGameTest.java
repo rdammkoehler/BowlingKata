@@ -40,6 +40,12 @@ public class BowlingGameTest {
 		rollMany(16, 0);
 		assertEquals(game.score(), 24);
 	}
+	
+	@Test(groups={"fast"})
+	public void shouldScoreThreeHundredForPerfectGame() {
+		rollMany(12,10);
+		assertEquals(game.score(),300);
+	}
 
 	private void rollStrike() {
 		game.roll(10);
