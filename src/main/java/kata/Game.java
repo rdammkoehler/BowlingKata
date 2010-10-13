@@ -12,16 +12,32 @@ public class Game {
 	public int score() {
 		int score = 0;
 		for(int frame = 0, ball = 0; frame < 10; frame++, ball += 2 ) {
-			if ( rolls[ball] == 10 ) { //strike
-				score = 10 + rolls[ball+1] + rolls[ball+2];
+			if ( isStrike(ball) ) { 
+				score += strikeBonus(ball);
 				ball -= 1; //ugly index hack!
 			} else if ( isSpare(ball) ) {
-				score += 10 + rolls[ball+2];
+				score += spareBonus(ball);
 			} else {
-				score += rolls[ball] + rolls[ball+1];
+				score += sumOfBallsInFrame(ball);
 			}
 		}
 		return score;
+	}
+
+	private int sumOfBallsInFrame(int ball) {
+		return rolls[ball] + rolls[ball+1];
+	}
+	
+	private int spareBonus(int ball) {
+		return 10 + rolls[ball+2];
+	}
+
+	private int strikeBonus(int ball) {
+		return 10 + rolls[ball+1] + rolls[ball+2];
+	}
+
+	private boolean isStrike(int ball) {
+		return rolls[ball] == 10;
 	}
 
 	private boolean isSpare(int ball) {
