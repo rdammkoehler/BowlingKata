@@ -12,7 +12,10 @@ public class Game {
 	public int score() {
 		int score = 0;
 		for(int frame = 0, ball = 0; frame < 10; frame++, ball += 2 ) {
-			if ( isSpare(ball) ) {
+			if ( rolls[ball] == 10 ) { //strike
+				score = 10 + rolls[ball+1] + rolls[ball+2];
+				ball -= 1; //ugly index hack!
+			} else if ( isSpare(ball) ) {
 				score += 10 + rolls[ball+2];
 			} else {
 				score += rolls[ball] + rolls[ball+1];
