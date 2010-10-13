@@ -13,4 +13,13 @@ public class BowlingGameTest {
 		}
 		assertEquals(game.score(), 0);
 	}
+	
+	@Test(groups={"fast"})
+	public void shouldScoreTwentyWhenAllOnes() {
+		Game game = new Game();
+		for(int i = 0; i < 20; i++ ) {
+			game.roll(1);
+		}
+		assertEquals(game.score(), 20);
+	}
 }
