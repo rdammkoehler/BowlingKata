@@ -11,14 +11,17 @@ public class Game {
 
 	public int score() {
 		int score = 0;
-		for(int frame = 0, ball = 0; frame < 10; frame++, ball += 2 ) {
-			if ( isStrike(ball) ) { 
-				score += strikeBonus(ball);
-				ball -= 1; //ugly index hack!
-			} else if ( isSpare(ball) ) {
-				score += spareBonus(ball);
+		int frameIndex = 0;
+		for(int frame = 0; frame < 10; frame++ ) {
+			if ( isStrike(frameIndex) ) { 
+				score += strikeBonus(frameIndex);
+				frameIndex += 1;
+			} else if ( isSpare(frameIndex) ) {
+				score += spareBonus(frameIndex);
+				frameIndex += 2;
 			} else {
-				score += sumOfBallsInFrame(ball);
+				score += sumOfBallsInFrame(frameIndex);
+				frameIndex += 2;
 			}
 		}
 		return score;
