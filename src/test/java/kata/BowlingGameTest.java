@@ -24,14 +24,14 @@ public class BowlingGameTest {
 		assertEquals(game.score(), 20);
 	}
 	
-	@Test(groups={"fast"})
-	public void shouldScoreSpareCorrectly() {
-		game.roll(5);
-		game.roll(5); //spare
-		game.roll(3);
-		rollMany(17,0);
-		assertEquals(game.score(),16);
-	}
+//	@Test(groups={"fast"})
+//	public void shouldScoreSpareCorrectly() {
+//		game.roll(5);
+//		game.roll(5); //spare
+//		game.roll(3);
+//		rollMany(17,0);
+//		assertEquals(game.score(),16);
+//	}
 	
 	private void rollMany(int rolls, int pins) {
 		for(int i = 0; i < rolls; i++ ) {
