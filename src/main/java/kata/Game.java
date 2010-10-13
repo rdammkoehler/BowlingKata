@@ -27,24 +27,24 @@ public class Game {
 		return score;
 	}
 
-	private int sumOfBallsInFrame(int ball) {
-		return rolls[ball] + rolls[ball+1];
+	private int sumOfBallsInFrame(int frameIndex) {
+		return rolls[frameIndex] + rolls[frameIndex+1];
 	}
 	
-	private int spareBonus(int ball) {
-		return 10 + rolls[ball+2];
+	private int spareBonus(int frameIndex) {
+		return 10 + rolls[frameIndex+2];
 	}
 
-	private int strikeBonus(int ball) {
-		return 10 + rolls[ball+1] + rolls[ball+2];
+	private int strikeBonus(int frameIndex) {
+		return 10 + rolls[frameIndex+1] + rolls[frameIndex+2];
 	}
 
-	private boolean isStrike(int ball) {
-		return rolls[ball] == 10;
+	private boolean isStrike(int frameIndex) {
+		return rolls[frameIndex] == 10;
 	}
 
-	private boolean isSpare(int ball) {
-		return rolls[ball] + rolls[ball+1] == 10;
+	private boolean isSpare(int frameIndex) {
+		return rolls[frameIndex] + rolls[frameIndex+1] == 10;
 	}
 
 }
