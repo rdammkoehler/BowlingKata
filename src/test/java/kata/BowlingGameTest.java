@@ -26,11 +26,15 @@ public class BowlingGameTest {
 	
 	@Test(groups={"fast"})
 	public void shouldScoreSpareCorrectly() {
-		game.roll(5);
-		game.roll(5); //spare
+		rollSpare();
 		game.roll(3);
 		rollMany(17,0);
 		assertEquals(game.score(),16);
+	}
+
+	private void rollSpare() {
+		game.roll(5);
+		game.roll(5);
 	}
 	
 	private void rollMany(int rolls, int pins) {
