@@ -5,9 +5,15 @@ import org.testng.annotations.*;
 
 public class BowlingGameTest {
 
+	private Game game;
+	
+	@BeforeMethod
+	public void beforeMethod() {
+		game = new Game();
+	}
+	
 	@Test(groups={"fast"})
 	public void shouldScoreZeroOnGutterGame() {
-		Game game = new Game();
 		for(int i = 0; i < 20; i++ ) {
 			game.roll(0);
 		}
@@ -16,7 +22,6 @@ public class BowlingGameTest {
 	
 	@Test(groups={"fast"})
 	public void shouldScoreTwentyWhenAllOnes() {
-		Game game = new Game();
 		for(int i = 0; i < 20; i++ ) {
 			game.roll(1);
 		}
