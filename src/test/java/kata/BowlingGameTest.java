@@ -34,11 +34,15 @@ public class BowlingGameTest {
 
 	@Test(groups = { "fast" })
 	public void shouldScoreStrikeCorrectly() {
-		game.roll(10); // stike
+		rollStrike();
 		game.roll(3);
 		game.roll(4);
 		rollMany(16, 0);
 		assertEquals(game.score(), 24);
+	}
+
+	private void rollStrike() {
+		game.roll(10);
 	}
 
 	private void rollSpare() {
